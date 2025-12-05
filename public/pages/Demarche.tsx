@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, Typography } from 'antd';
-import { TeamOutlined, ExperimentOutlined, DeploymentUnitOutlined, CheckCircleOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import { TeamOutlined, ExperimentOutlined, DeploymentUnitOutlined, CheckCircleOutlined} from '@ant-design/icons';
 import './Demarche.css';
 
 const { Title, Paragraph, Text } = Typography;
@@ -70,7 +70,6 @@ const Demarche: React.FC = () => {
   const calculateProgress = () => {
     if (!containerRef.current) return 0;
     
-    const container = containerRef.current;
     const scrollPosition = window.scrollY + (window.innerHeight * 0.3); // Ajustement de la sensibilité
     let currentStep = 0;
     
@@ -92,11 +91,13 @@ const Demarche: React.FC = () => {
     return Math.min(100, currentStep * 34);
   };
 
-  const [scrollY, setScrollY] = useState(0);
+  //const [scrollY, setScrollY] = useState(0);
   
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
+
+      
       
       const elements = containerRef.current.querySelectorAll('.etape-container');
       const newVisibleElements: number[] = [];
@@ -111,7 +112,7 @@ const Demarche: React.FC = () => {
       });
       
       setVisibleElements(newVisibleElements);
-      setScrollY(window.scrollY); // Mise à jour de la position de défilement
+      //setScrollY(window.scrollY); // Mise à jour de la position de défilement
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
