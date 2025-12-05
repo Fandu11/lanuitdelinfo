@@ -183,8 +183,8 @@
 .ant-layout-content { flex: 1; }
 
 .content-card {
-  max-width: 750px;
-  width: 90%;
+  max-width: 100%;
+  width: 100%;
   /* Augmentation de la marge haute pour éviter la superposition avec les boutons qui tournent */
   margin-top: 10rem; 
   margin-bottom: 4rem;
