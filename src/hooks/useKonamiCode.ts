@@ -7,6 +7,7 @@ const KONAMI_CODE = [
 
 export const useKonamiCode = (action: () => void) => {
   const [input, setInput] = useState<string[]>([]);
+  console.log('Séquence actuelle :', input); // Utilisation de la variable input
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

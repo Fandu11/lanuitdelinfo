@@ -44,7 +44,7 @@ export default function HiddenSnake({ visible, onClose }: HiddenSnakeProps) {
   const explosionRef = useRef<{x: number, y: number, tick: number} | null>(null);
 
   const dirRef = useRef({ x: 0, y: 0 });
-  const gameLoopRef = useRef<number | null>(null);
+  const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
   const speedRef = useRef(150);
   
   const scoreRef = useRef(0); 
