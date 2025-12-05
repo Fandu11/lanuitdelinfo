@@ -2,21 +2,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Changement ici : on commence d'en haut au lieu de centrer de force */
+  /* On commence d'en haut */
   justify-content: flex-start; 
   width: 100%;
   min-height: 100vh;
-  /* On baisse l'ensemble des éléments de 100px (environ 6rem) */
   padding-top: 6rem; 
-  padding-bottom: 4rem; /* Un peu d'espace en bas aussi */
+  padding-bottom: 4rem;
   padding-left: 2rem;
   padding-right: 2rem;
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 1400px;
-  /* Changement critique : on autorise le scroll car les éléments sont grands */
+  max-width: 100%; /* Important pour que le fond prenne toute la largeur */
+  
+  /* Autorise le scroll */
   overflow-y: auto; 
   overflow-x: hidden;
+
+  /* --- FOND ANIMÉ WAOUH (Aurore Boréale) --- */
+  background: linear-gradient(-45deg, #e0c3fc, #8ec5fc, #fff1b8, #d4fc79);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Animation du fond */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Le cercle reste identique en taille */
@@ -24,7 +36,6 @@
   position: relative;
   width: 750px;
   height: 750px;
-  /* On s'assure qu'il ne pousse pas sur les côtés */
   flex-shrink: 0; 
   margin: 0 auto;
   display: flex;
@@ -42,8 +53,10 @@
   justify-content: center;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: white;
+  
+  /* Fond semi-transparent pour lier avec le reste */
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -52,7 +65,7 @@
   position: absolute;
   width: 750px;
   height: 750px;
-  border: 2px solid #1890ff;
+  border: 2px solid rgba(24, 144, 255, 0.6); /* Légèrement plus transparent */
   border-radius: 50%;
   top: 50%;
   left: 50%;
@@ -100,6 +113,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Animations de rotation des boutons */
 @keyframes rotate1 {
   from { transform: translate(-50%, -50%) rotate(0deg) translateY(-375px) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg) translateY(-375px) rotate(-360deg); }
@@ -155,6 +169,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .button-circle { width: 600px; height: 600px; }
   .button-circle::before { width: 600px; height: 600px; }
@@ -182,20 +197,26 @@
 
 .ant-layout-content { flex: 1; }
 
+/* --- STYLE CARTE (EFFET GLASSMORPHISM) --- */
 .content-card {
-  max-width: 100%;
+  max-width: 1200px; /* Légèrement réduit pour la lisibilité */
   width: 100%;
-  /* Augmentation de la marge haute pour éviter la superposition avec les boutons qui tournent */
   margin-top: 10rem; 
   margin-bottom: 4rem;
   text-align: center;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.5s ease-out;
-  background: white;
+  border-radius: 20px; /* Coins plus arrondis */
   padding: 3rem;
   line-height: 1.8;
   color: #333;
+  
+  /* L'effet de verre dépoli */
+  background: rgba(255, 255, 255, 0.85); /* Blanc transparent */
+  backdrop-filter: blur(12px);            /* Flou d'arrière-plan */
+  -webkit-backdrop-filter: blur(12px);    /* Pour Safari */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* Ombre douce */
+  
+  animation: fadeIn 0.5s ease-out;
 }
 
 @keyframes fadeIn {
@@ -218,7 +239,7 @@
   font-size: 1.1rem;
   text-align: center;
   margin-bottom: 2rem;
-  color: #555;
+  color: #444; /* Un peu plus sombre pour le contraste sur le verre */
 }
 
 .section-title {
@@ -231,7 +252,7 @@
 
 .divider {
   height: 2px;
-  background: linear-gradient(90deg, transparent, #e8e8e8, transparent);
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
   margin: 2rem 0;
 }
 
@@ -245,21 +266,25 @@
 .pillar-item {
   padding: 1.5rem;
   border-radius: 12px;
-  background: #f9f9f9;
+  background: rgba(255, 255, 255, 0.6); /* Fond légèrement transparent aussi */
   border-left: 5px solid #ccc;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.pillar-item:hover { transform: translateY(-5px); }
+.pillar-item:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 .pillar-item h3 { margin-top: 0; font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-.p-blue { border-color: #7fb3e6; background: #f0f7ff; }
+.p-blue { border-color: #7fb3e6; background: rgba(240, 247, 255, 0.8); }
 .p-blue h3 { color: #1890ff; }
 
-.p-purple { border-color: #d9b3ff; background: #f9f0ff; }
+.p-purple { border-color: #d9b3ff; background: rgba(249, 240, 255, 0.8); }
 .p-purple h3 { color: #722ed1; }
 
-.p-yellow { border-color: #ffed99; background: #fffbe6; }
+.p-yellow { border-color: #ffed99; background: rgba(255, 251, 230, 0.8); }
 .p-yellow h3 { color: #faad14; }
 
 .linux-list ul { list-style-type: none; padding-left: 0; }
@@ -276,6 +301,7 @@
   border-radius: 12px;
   margin-top: 3rem;
   text-align: center;
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
 }
 
 .cta-box h2 { color: white; margin-top: 0; }
@@ -286,4 +312,5 @@
   margin-top: 1rem;
   display: inline-block;
   font-weight: 500;
+  backdrop-filter: blur(4px);
 }
