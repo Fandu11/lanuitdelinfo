@@ -13,7 +13,7 @@ import Demarche from '../public/pages/Demarche';
 import LinuxPage from '../public/pages/Linux';
 import Pourquoi from '../public/pages/Pourquoi';
 import './App.css';
-import Snake from '../public/pages/Snake';
+import Sesame from '../public/pages/Sesame'
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
               <Route path="/carte-talents" element={<CarteTalents />} />
               <Route path="/ligue-extensions" element={<LigueExtensions />} />
               <Route path="/quiz" element={<Quiz />} />
-              <Route path="/sesame" element={<Snake />} />
+              <Route path="/sesame" element={<Sesame />} />
               {/* Nouvelles routes pour les boutons du menu principal */}
               <Route path="/demarche" element={<Demarche />} />
               <Route path="/pourquoi" element={<Pourquoi />} />
