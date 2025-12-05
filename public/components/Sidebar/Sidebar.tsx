@@ -2,7 +2,7 @@
 import { Layout, Menu } from 'antd';
 import { 
   HomeOutlined, 
-  ProjectOutlined, 
+  ProjectOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined 
 } from '@ant-design/icons';
