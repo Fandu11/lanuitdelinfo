@@ -1,6 +1,6 @@
 // public/pages/CarteTalents.tsx
 import { Typography, Card, List } from 'antd';
-import { UserOutlined, StarOutlined } from '@ant-design/icons';
+import { StarOutlined } from '@ant-design/icons';
 
 const { Title, Paragraph } = Typography;
 

@@ -8,16 +8,12 @@ import Ergonomie from '../public/pages/Ergonomie';
 import Sesame from '../public/pages/Sesame';
 import CarteTalents from '../public/pages/CarteTalents';
 import LigueExtensions from '../public/pages/LigueExtensions';
-
 import './App.css';
 
 const { Content } = Layout;
 
-// Composants de page (à créer plus tard)
+// Composant de page pour la page d'accueil
 function Home() { return <div>Page d'accueil</div> }
-function Team() { return <div>Équipe</div> }
-function Projects() { return <div>Projets</div> }
-function Settings() { return <div>Paramètres</div> }
 
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
