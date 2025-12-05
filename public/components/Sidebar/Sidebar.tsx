@@ -4,66 +4,66 @@ import {
   HomeOutlined, 
   TeamOutlined, 
   ProjectOutlined, 
-  SettingOutlined
+  SettingOutlined,
+  RocketOutlined, // J'ai ajouté Rocket et Bulb pour correspondre aux items
+  BulbOutlined
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './Sidebar.css';
 
 const { Sider } = Layout;
 
 interface SidebarProps {
-  onCollapse: (collapsed: boolean) => void;
+  onCollapse?: (collapsed: boolean) => void; // J'ai mis optionnel au cas où
 }
 
 export default function Sidebar({ onCollapse }: SidebarProps) {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Logique pour garder le bouton allumé correctement
+  const pathToKey: { [key: string]: string } = {
+    '/': '1',
+    '/sesame': '2',
+    '/carte-talents': '3',
+    '/ligue-extensions': '4',
+    '/quiz': '5',
+  };
+  const currentKey = pathToKey[location.pathname] || '1';
 
   return (
     <Sider
       collapsible
       onCollapse={onCollapse}
+      width={200}
+      className="sidebar-glass" /* <--- La classe magique */
       style={{
-        overflow: 'auto',
         height: '100vh',
         position: 'fixed',
         left: 0,
         top: 0,
         bottom: 0,
-        background: '#fff',
-        boxShadow: '2px 0 8px 0 rgba(29,35,41,0.05)'
+        background: 'transparent', /* <--- CRUCIAL : Transparent, pas blanc ! */
+        borderRight: 'none'
       }}
-      width={250}
+      trigger={null} /* On cache le trigger par défaut pour le design épuré */
     >
-      <div style={{
-        height: '64px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderBottom: '1px solid #f0f0f0',
-        marginBottom: '16px',
-        padding: '0 16px',
-        position: 'relative'
-      }}>
-        <h2 style={{ 
-          color: '#1890ff',
-          margin: 0,
-          fontSize: '1.5rem',
-          fontWeight: 'bold',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis'
-        }}>
+      {/* Logo avec effet brillant */}
+      <div className="logo-container">
+        <h2 className="brand-text">
           Team Baobab
         </h2>
       </div>
       
       <Menu
         mode="inline"
-        defaultSelectedKeys={['1']}
-        style={{ borderRight: 0 }}
+        selectedKeys={[currentKey]}
+        className="custom-menu"
+        style={{ background: 'transparent', borderRight: 0 }}
         onClick={({ key }) => {
           const routes: { [key: string]: string } = {
             '1': '/',
-            '2': '/ergonomie',
+            '2': '/sesame',
             '3': '/carte-talents',
             '4': '/ligue-extensions',
             '5': '/quiz',
@@ -74,16 +74,16 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
         <Menu.Item key="1" icon={<HomeOutlined />}>
           Accueil
         </Menu.Item>
-        <Menu.Item key="2" icon={<SettingOutlined />}>
-          Ergonomie
+        <Menu.Item key="2" icon={<ProjectOutlined />}>
+          Sesame
         </Menu.Item>
         <Menu.Item key="3" icon={<TeamOutlined />}>
           Carte Talents
         </Menu.Item>
-        <Menu.Item key="4" icon={<TeamOutlined />}>
+        <Menu.Item key="4" icon={<RocketOutlined />}>
           Ligue Extensions
         </Menu.Item>
-        <Menu.Item key="5" icon={<TeamOutlined />}>
+        <Menu.Item key="5" icon={<BulbOutlined />}>
           Quiz
         </Menu.Item>
       </Menu>

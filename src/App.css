@@ -1,56 +1,29 @@
 /* src/App.css */
-#root {
-  height: 100%;
+
+/* 1. FORCE LA TRANSPARENCE PARTOUT */
+#root, 
+.ant-layout, 
+.ant-layout-sider, 
+.site-layout {
+  background: transparent !important; /* Crucial pour voir le fond */
 }
 
-.ant-layout {
+/* Pour le contenu principal */
+.ant-layout-content {
   min-height: 100vh;
 }
 
-/* Style pour le contenu principal */
-.site-layout {
-  margin-left: 200px;
-}
-
-/* Style pour le contenu de la page */
-.site-layout-background {
-  background: #fff;
-  padding: 24px;
-  min-height: 360px;
-  border-radius: 8px;
-}
-
-/* Style pour les liens actifs */
+/* Style pour les liens actifs dans le menu */
 .ant-menu-item-selected {
-  background-color: #e6f7ff !important;
-  color: #1890ff !important;
+  background-color: transparent !important; /* Géré par votre Sidebar.css */
 }
 
-/* Style pour les icônes du menu */
-.ant-menu-item .anticon {
-  font-size: 18px;
-  margin-right: 10px;
-}
-
-/* Style pour le conteneur principal */
-.main-content {
-  transition: all 0.2s;
-}
-
-/* Ajustements pour les écrans plus petits */
+/* Ajustements Responsive */
 @media (max-width: 1000px) {
   .ant-layout-sider {
     position: fixed !important;
     z-index: 1000;
     height: 100vh;
-  }
-  
-  .ant-layout {
-    margin-left: 0 !important;
-  }
-  
-  .main-content {
-    margin-left: 0 !important;
-    width: 100%;
+    background: rgba(255, 255, 255, 0.9) !important; /* Un peu de fond sur mobile pour lire */
   }
 }

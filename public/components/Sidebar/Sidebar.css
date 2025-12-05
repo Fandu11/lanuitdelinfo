@@ -1,92 +1,77 @@
-.sidebar {
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
+/* --- CONTAINER PRINCIPAL (Verre transparent) --- */
+.sidebar-glass {
   z-index: 1000;
-  box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.1);
+  /* Pas de bordure droite moche */
+  border-right: none !important;
+  
+  /* Fond presque invisible avec flou */
+  background: rgba(255, 255, 255, 0.1) !important; 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.02);
   transition: all 0.2s;
-  overflow: hidden;
 }
 
-.logo {
-  height: 64px;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
+/* --- LOGO ANIMÉ --- */
+.logo-container {
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 16px;
-  background: #001529;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 10px;
 }
 
-.toggle-btn {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s;
-  z-index: 1001;
+.brand-text {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  /* Dégradé de texte */
+  background: linear-gradient(45deg, #1890ff, #722ed1, #faad14);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+  margin: 0;
 }
 
-.toggle-btn:hover {
-  color: #1890ff;
+@keyframes shine {
+  to { background-position: 200% center; }
 }
 
-.ant-menu {
-  height: calc(100vh - 64px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-top: 16px;
+/* --- MENU CUSTOM --- */
+.custom-menu {
+  background: transparent !important;
+  border-right: none !important;
+  padding: 0 12px;
 }
 
-.ant-menu-item {
-  margin: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.3s;
+.custom-menu .ant-menu-item {
+  margin: 8px 0 !important;
+  border-radius: 12px !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  color: #444; /* Couleur texte repos */
+  font-weight: 500;
+  transition: all 0.3s ease !important;
 }
 
-.ant-menu-item:hover {
-  background-color: #1890ff20 !important;
+/* Hover léger */
+.custom-menu .ant-menu-item:hover {
+  background: rgba(255, 255, 255, 0.4) !important;
+  color: #1890ff !important;
+  transform: translateX(5px);
 }
 
-.ant-menu-item-selected {
-  background-color: #1890ff !important;
+/* --- L'ÉTAT ACTIF (Capsule) --- */
+.custom-menu .ant-menu-item-selected {
+  background: linear-gradient(135deg, #1890ff 0%, #6842ff 100%) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(24, 144, 255, 0.4);
+  transform: translateX(5px) scale(1.02);
 }
 
-.ant-menu-item .anticon {
-  font-size: 18px;
-  margin-right: 8px;
-}
-
-.main-content {
-  transition: margin-left 0.2s;
-  margin-left: 250px;
-  min-height: 100vh;
-  background: #f0f2f5;
-}
-
-.main-content.collapsed {
-  margin-left: 80px;
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-  
-  .sidebar.collapsed {
-    transform: translateX(0);
-  }
-  
-  .main-content {
-    margin-left: 0;
-  }
+.custom-menu .ant-menu-item-selected .anticon {
+  color: white !important;
 }
