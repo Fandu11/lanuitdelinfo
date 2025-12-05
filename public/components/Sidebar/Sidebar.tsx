@@ -4,34 +4,17 @@ import {
   HomeOutlined, 
   TeamOutlined, 
   ProjectOutlined, 
-  SettingOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined 
+  SettingOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 
 const { Sider } = Layout;
 
-interface SidebarProps {
-  onCollapse: (collapsed: boolean) => void;
-}
-
-export default function Sidebar({ onCollapse }: SidebarProps) {
-  const [collapsed, setCollapsed] = useState(false);
+export default function Sidebar() {
   const navigate = useNavigate();
-
-  const handleCollapse = (collapsed: boolean) => {
-    setCollapsed(collapsed);
-    onCollapse(collapsed);
-  };
 
   return (
     <Sider
-      trigger={null}
-      collapsible
-      collapsed={collapsed}
-      onCollapse={handleCollapse}
       style={{
         overflow: 'auto',
         height: '100vh',
@@ -43,7 +26,6 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
         boxShadow: '2px 0 8px 0 rgba(29,35,41,0.05)'
       }}
       width={250}
-      collapsedWidth={80}
     >
       <div style={{
         height: '64px',
@@ -55,30 +37,17 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
         padding: '0 16px',
         position: 'relative'
       }}>
-        {!collapsed && (
-          <h2 style={{ 
-            color: '#1890ff',
-            margin: 0,
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis'
-          }}>
-            Team Baobab
-          </h2>
-        )}
-        <div 
-          style={{
-            position: 'absolute',
-            right: 16,
-            cursor: 'pointer',
-            fontSize: '16px'
-          }}
-          onClick={() => setCollapsed(!collapsed)}
-        >
-          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </div>
+        <h2 style={{ 
+          color: '#1890ff',
+          margin: 0,
+          fontSize: '1.5rem',
+          fontWeight: 'bold',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
+        }}>
+          Team Baobab
+        </h2>
       </div>
       
       <Menu

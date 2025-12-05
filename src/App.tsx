@@ -25,7 +25,9 @@ function App() {
         <Layout style={{ 
           marginLeft: sidebarCollapsed ? 80 : 250, 
           minHeight: '100vh',
-          transition: 'margin-left 0.2s'
+          transition: 'margin-left 0.2s',
+          width: 'auto',
+          overflow: 'hidden'
         }}>
             <Routes>
               <Route path="/" element={<Home />} />
