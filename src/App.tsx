@@ -13,11 +13,6 @@ import './App.css';
 
 const { Content } = Layout;
 
-// Composants de page
-function Team() { return <div>Équipe</div> }
-function Projects() { return <div>Projets</div> }
-function Settings() { return <div>Paramètres</div> }
-
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
@@ -31,10 +26,13 @@ function App() {
           transition: 'margin-left 0.2s'
         }}>
           <Content style={{ 
-            margin: '24px 16px', 
-            padding: 24, 
+            margin: '0', 
+            padding: '0', 
             background: '#fff',
-            borderRadius: 8
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '100vh'
           }}>
             <Routes>
               <Route path="/" element={<Home />} />

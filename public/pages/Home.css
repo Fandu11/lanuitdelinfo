@@ -1,0 +1,100 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.button-circle {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ... (le reste de votre CSS existant) ... */
+
+/* ... (le reste du CSS reste inchangé) ... */
+
+.circle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  min-width: 140px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #1890ff;
+  background: white;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  margin: 0;
+}
+
+/* Positionnement des boutons en cercle */
+.button-0 { 
+  transform: translate(-50%, -50%) rotate(0deg) translateY(-200px) rotate(0deg); 
+}
+.button-1 { 
+  transform: translate(-50%, -50%) rotate(120deg) translateY(-200px) rotate(-120deg); 
+}
+.button-2 { 
+  transform: translate(-50%, -50%) rotate(240deg) translateY(-200px) rotate(-240deg); 
+}
+
+/* Style pour le survol et l'état actif */
+.circle-button:hover,
+.circle-button.ant-btn-primary {
+  /* Suppression de l'effet de scale */
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .button-circle {
+    width: 350px;
+    height: 350px;
+  }
+
+  .button-0 { 
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-150px) rotate(0deg); 
+  }
+  .button-1 { 
+    transform: translate(-50%, -50%) rotate(120deg) translateY(-150px) rotate(-120deg); 
+  }
+  .button-2 { 
+    transform: translate(-50%, -50%) rotate(240deg) translateY(-150px) rotate(-240deg); 
+  }
+  
+  .circle-button {
+    min-width: 120px;
+    height: 45px;
+    font-size: 1rem;
+  }
+}
+
+#root, .ant-layout {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.ant-layout-content {
+  flex: 1;
+}
