@@ -6,12 +6,12 @@ import Sidebar from '../public/components/Sidebar/Sidebar';
 // Import des composants de page
 import Home from '../public/pages/Home';
 import Ergonomie from '../public/pages/Ergonomie';
-import Sesame from '../public/pages/Sesame';
 import CarteTalents from '../public/pages/CarteTalents';
 import LigueExtensions from '../public/pages/LigueExtensions';
 import Quiz from '../public/pages/Quiz';
 import Demarche from '../public/pages/Demarche';
 import './App.css';
+import Snake from '../public/pages/Snake';
 
 const { Content } = Layout;
 
@@ -32,10 +32,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/ergonomie" element={<Ergonomie />} />
-              <Route path="/sesame" element={<Sesame />} />
               <Route path="/carte-talents" element={<CarteTalents />} />
               <Route path="/ligue-extensions" element={<LigueExtensions />} />
               <Route path="/quiz" element={<Quiz />} />
+              <Route path="/sesame" element={<Snake />} />
               {/* Nouvelles routes pour les boutons du menu principal */}
               <Route path="/demarche" element={<Demarche />} />
               <Route path="/pourquoi" element={<div>Page Pourquoi</div>} />
