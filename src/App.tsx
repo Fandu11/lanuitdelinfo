@@ -9,7 +9,7 @@ import Ergonomie from '../public/pages/Ergonomie';
 import Sesame from '../public/pages/Sesame';
 import CarteTalents from '../public/pages/CarteTalents';
 import LigueExtensions from '../public/pages/LigueExtensions';
-import './App.css';
+import Quiz from '../public/pages/Quiz';
 
 const { Content } = Layout;
 
@@ -25,23 +25,14 @@ function App() {
           minHeight: '100vh',
           transition: 'margin-left 0.2s'
         }}>
-          <Content style={{ 
-            margin: '0', 
-            padding: '0', 
-            background: '#fff',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '100vh'
-          }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/ergonomie" element={<Ergonomie />} />
               <Route path="/sesame" element={<Sesame />} />
               <Route path="/carte-talents" element={<CarteTalents />} />
               <Route path="/ligue-extensions" element={<LigueExtensions />} />
+              <Route path="/quiz" element={<Quiz />} />
             </Routes>
-          </Content>
         </Layout>
       </Layout>
     </Router>

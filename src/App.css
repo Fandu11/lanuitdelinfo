@@ -38,7 +38,7 @@
 }
 
 /* Ajustements pour les écrans plus petits */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .ant-layout-sider {
     position: fixed !important;
     z-index: 1000;

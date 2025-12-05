@@ -92,6 +92,7 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
             '3': '/sesame',
             '4': '/carte-talents',
             '5': '/ligue-extensions',
+            '6': '/quiz',
           };
           navigate(routes[key] || '/');
         }}
@@ -110,6 +111,9 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
         </Menu.Item>
         <Menu.Item key="5" icon={<TeamOutlined />}>
           Ligue Extensions
+        </Menu.Item>
+        <Menu.Item key="6" icon={<TeamOutlined />}>
+          Quiz
         </Menu.Item>
       </Menu>
     </Sider>
