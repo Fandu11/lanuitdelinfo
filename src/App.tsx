@@ -3,12 +3,17 @@ import { useState } from 'react';
 import { Layout } from 'antd';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from '../public/components/Sidebar/Sidebar';
+// Import des composants de page
+import Home from '../public/pages/Home';
+import Ergonomie from '../public/pages/Ergonomie';
+import Sesame from '../public/pages/Sesame';
+import CarteTalents from '../public/pages/CarteTalents';
+import LigueExtensions from '../public/pages/LigueExtensions';
 import './App.css';
 
 const { Content } = Layout;
 
-// Composants de page (à créer plus tard)
-function Home() { return <div>Page d'accueil</div> }
+// Composants de page
 function Team() { return <div>Équipe</div> }
 function Projects() { return <div>Projets</div> }
 function Settings() { return <div>Paramètres</div> }
@@ -33,9 +38,10 @@ function App() {
           }}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/equipe" element={<Team />} />
-              <Route path="/projets" element={<Projects />} />
-              <Route path="/parametres" element={<Settings />} />
+              <Route path="/ergonomie" element={<Ergonomie />} />
+              <Route path="/sesame" element={<Sesame />} />
+              <Route path="/carte-talents" element={<CarteTalents />} />
+              <Route path="/ligue-extensions" element={<LigueExtensions />} />
             </Routes>
           </Content>
         </Layout>
