@@ -1,0 +1,181 @@
+/* src/pages/Quiz.css */
+
+/* --- STYLE PASTEL SOFT --- */
+
+/* Un fond dégradé beaucoup plus doux (rose poudré vers bleu ciel pâle) */
+.quiz-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Prend tout l'écran */
+  background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* La carte principale du quiz */
+.quiz-card {
+  width: 100%;
+  height: 100%;
+  max-width: 100%; /* Un peu plus large */
+  max-height: 100%;
+  border-radius: 25px !important; /* Arrondis plus prononcés */
+  /* Ombre plus douce et colorée */
+  box-shadow: 0 15px 35px rgba(100, 100, 255, 0.1) !important;
+  border: none !important;
+  background: rgba(255, 255, 255, 0.95) !important; /* Légèrement transparent */
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Le titre de la question */
+.quiz-question-title {
+  color: #5a5a8a !important; /* Violet/Gris doux au lieu du noir */
+  font-weight: 700 !important;
+  margin-bottom: 30px !important;
+  text-align: center;
+  line-height: 1.4 !important;
+}
+
+/* Conteneur des boutons */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Style des boutons de réponse (état normal) */
+.option-button {
+  height: auto !important;
+  min-height: 65px;
+  border-radius: 15px !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  white-space: normal !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 25px !important;
+  /* Fond blanc cassé et bordure très pâle */
+  background-color: #fafafa !important;
+  border: 2px solid #f0f0f0 !important;
+  color: #666 !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* Au survol : effet "pop" pastel */
+.option-button:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+  border-color: #b5ead7 !important; /* Menthe pâle au survol */
+  background-color: #f0fff9 !important;
+  color: #5a5a8a !important;
+}
+
+/* --- États spécifiques (Pastelisés) --- */
+
+/* Bonne réponse : Menthe douce */
+.option-correct {
+  background-color: #e6fffa !important;
+  border-color: #38dec2 !important;
+  color: #008c7a !important;
+  font-weight: bold !important;
+}
+
+/* Mauvaise réponse : Corail doux */
+.option-wrong {
+  background-color: #ffeef1 !important;
+  border-color: #ff9aa2 !important;
+  color: #d64550 !important;
+  opacity: 0.9;
+}
+
+/* --- LE CLAVIER TÉLÉPHONE CHAOS PASTEL (Inchangé car déjà parfait) --- */
+
+.retro-input-screen {
+  background-color: #f0f7e6;
+  border: 3px solid #b8c7a9;
+  border-radius: 12px;
+  padding: 15px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  text-align: center;
+  box-shadow: inset 2px 2px 8px rgba(0,0,0,0.1);
+  margin: 30px auto;
+  max-width: 400px;
+  min-height: 60px;
+  font-weight: bold;
+  color: #5a6b4e;
+}
+
+/* --- LE CLAVIER CHAOS (Overlay Total) --- */
+
+.keypad-btn-chaos {
+  position: fixed; /* Repasse en FIXED pour voler sur tout l'écran */
+  width: 80px;     
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 
+    inset 0 -4px 0 rgba(0,0,0,0.1),
+    0 4px 15px rgba(0,0,0,0.3); /* Ombre plus forte pour bien détacher du fond */
+  border: 3px solid rgba(255,255,255,0.9);
+  transition: transform 0.1s; /* On enlève box-shadow de la transition */
+  
+  /* C'est ICI le secret : on le met au dessus de TOUT */
+  z-index: 9999 !important; 
+}
+
+
+.keypad-btn-chaos:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+
+.key-number-pastel {
+  color: rgba(0,0,0,0.6);
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.key-letters-pastel {
+  color: rgba(0,0,0,0.4);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background-color: #5a6b4e;
+  animation: blink 1s step-end infinite;
+  vertical-align: sub;
+  margin-left: 5px;
+}
+
+@keyframes blink { 50% { opacity: 0; } }

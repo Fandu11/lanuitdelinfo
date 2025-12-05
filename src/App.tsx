@@ -9,7 +9,7 @@ import Ergonomie from '../public/pages/Ergonomie';
 import Sesame from '../public/pages/Sesame';
 import CarteTalents from '../public/pages/CarteTalents';
 import LigueExtensions from '../public/pages/LigueExtensions';
-import './App.css';
+import Quiz from '../public/pages/Quiz';
 
 const { Content } = Layout;
 
@@ -25,28 +25,18 @@ function App() {
           minHeight: '100vh',
           transition: 'margin-left 0.2s'
         }}>
-          <Content style={{ 
-          margin: '0', 
-          padding: '24px', 
-          background: '#fff',
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/ergonomie" element={<Ergonomie />} />
               <Route path="/sesame" element={<Sesame />} />
               <Route path="/carte-talents" element={<CarteTalents />} />
               <Route path="/ligue-extensions" element={<LigueExtensions />} />
+              <Route path="/quiz" element={<Quiz />} />
               {/* Nouvelles routes pour les boutons du menu principal */}
               <Route path="/demarche" element={<div>Page Démarche</div>} />
               <Route path="/pourquoi" element={<div>Page Pourquoi</div>} />
               <Route path="/linux" element={<div>Page Linux</div>} />
             </Routes>
-          </Content>
         </Layout>
       </Layout>
     </Router>
