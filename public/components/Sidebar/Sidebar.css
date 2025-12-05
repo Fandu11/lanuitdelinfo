@@ -27,10 +27,18 @@
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.5px;
-  /* Dégradé de texte */
+  
+  /* Le dégradé */
   background: linear-gradient(45deg, #1890ff, #722ed1, #faad14);
   background-size: 200% auto;
+  
+  background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* Rend le texte transparent pour laisser voir le fond à travers */
   -webkit-text-fill-color: transparent;
+  color: transparent; /* Sécurité supplémentaire */
+  
   animation: shine 5s linear infinite;
   margin: 0;
 }
