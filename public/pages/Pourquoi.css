@@ -1,0 +1,472 @@
+:root {
+  --primary: #1890ff;
+  --primary-light: #e6f7ff;
+  --secondary: #722ed1;
+  --text: #2c3e50;
+  --text-light: #666;
+  --background: #f8f9fa;
+  --card-bg: #ffffff;
+  --section-bg: #ffffff;
+  --highlight: #1890ff;
+}
+
+.pourquoi-container {
+  background-color: var(--background);
+  color: var(--text);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+  color: white;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #fff, #a7c7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin-bottom: 32px;
+}
+
+.highlight {
+  color: #64ffda;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #64ffda, #00bcd4);
+  z-index: -1;
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+/* Tech Elements */
+.tech-circle {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  right: -100px;
+  top: -100px;
+  z-index: -1;
+}
+
+.tech-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Styling */
+.section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.section-number {
+  font-size: 1.5rem;
+  color: var(--highlight);
+  margin-right: 16px;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 32px;
+  max-width: 800px;
+}
+
+/* Advantages List */
+.advantages-list {
+  margin-top: 40px;
+}
+
+.list-item {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+}
+
+.list-marker {
+  color: var(--highlight);
+  margin-right: 16px;
+  font-size: 1.2rem;
+  margin-top: 4px;
+}
+
+/* Cards */
+.avantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.avantage-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 32px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.avantage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--highlight), var(--secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.avantage-card:hover::before {
+  transform: scaleX(1);
+}
+
+.avantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.avantage-icon {
+  font-size: 2.5rem;
+  color: var(--highlight);
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: rgba(100, 255, 218, 0.1);
+  border-radius: 12px;
+}
+
+.avantage-title {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.avantage-description {
+  color: var(--text-light);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.avantage-arrow {
+  color: var(--highlight);
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.avantage-card:hover .avantage-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Testimonials */
+.temoignage {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 16px;
+  padding: 60px;
+  margin: 80px 0;
+}
+
+.references {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.reference-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.reference-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.reference-card blockquote {
+  margin: 0;
+  font-style: italic;
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+}
+
+.reference-card blockquote::before {
+  content: '"';
+  position: absolute;
+  font-size: 5rem;
+  color: var(--highlight);
+  opacity: 0.1;
+  font-family: serif;
+  top: -20px;
+  left: -15px;
+  line-height: 1;
+}
+
+.reference-card footer {
+  margin-top: 20px;
+  text-align: right;
+  color: var(--text-light);
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+  border-radius: 16px;
+  padding: 80px 60px;
+  margin: 100px 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.cta-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.cta-button {
+  padding: 0 24px;
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cta-button.ant-btn-primary {
+  background: #64ffda;
+  color: #1a1a1a;
+  border: none;
+}
+
+.cta-button.ant-btn-primary:hover {
+  background: #52e9c7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.3);
+}
+
+.cta-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.cta-illustration {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.1;
+}
+
+.tech-dots {
+  width: 300px;
+  height: 300px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transform: rotate(45deg);
+}
+
+/* Divider */
+.custom-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 60px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin: 0 auto 32px;
+  }
+
+  .cta-section {
+    padding: 60px 30px;
+    text-align: center;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .cta-illustration {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .temoignage {
+    padding: 40px 24px;
+  }
+
+  .references {
+    grid-template-columns: 1fr;
+  }
+
+  .avantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -11,10 +11,10 @@ import LigueExtensions from '../public/pages/LigueExtensions';
 import Quiz from '../public/pages/Quiz';
 import Demarche from '../public/pages/Demarche';
 import LinuxPage from '../public/pages/Linux';
+import Pourquoi from '../public/pages/Pourquoi';
 import './App.css';
 import Snake from '../public/pages/Snake';
 
-const { Content } = Layout;
 
 function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -39,7 +39,7 @@ function App() {
               <Route path="/sesame" element={<Snake />} />
               {/* Nouvelles routes pour les boutons du menu principal */}
               <Route path="/demarche" element={<Demarche />} />
-              <Route path="/pourquoi" element={<div>Page Pourquoi</div>} />
+              <Route path="/pourquoi" element={<Pourquoi />} />
               <Route path="/linux" element={<LinuxPage />} />
             </Routes>
         </Layout>
