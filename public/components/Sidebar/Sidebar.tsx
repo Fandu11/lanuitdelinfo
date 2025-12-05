@@ -10,11 +10,17 @@ import { useNavigate } from 'react-router-dom';
 
 const { Sider } = Layout;
 
-export default function Sidebar() {
+interface SidebarProps {
+  onCollapse: (collapsed: boolean) => void;
+}
+
+export default function Sidebar({ onCollapse }: SidebarProps) {
   const navigate = useNavigate();
 
   return (
     <Sider
+      collapsible
+      onCollapse={onCollapse}
       style={{
         overflow: 'auto',
         height: '100vh',

@@ -1,0 +1,102 @@
+.linux-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 8px;
+}
+
+.hero-section .title {
+  color: #1890ff;
+  margin-bottom: 8px;
+}
+
+.hero-section .subtitle {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.distribution-cards {
+  margin-bottom: 32px;
+}
+
+.distribution-card {
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.distribution-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.distribution-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.distribution-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.features {
+  margin-bottom: 16px;
+}
+
+.feature {
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.pros-cons {
+  margin: 12px 0;
+}
+
+.pros-cons .pro,
+.pros-cons .con {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 4px 0;
+}
+
+.conclusion {
+  margin: 40px 0;
+}
+
+.conclusion ul {
+  padding-left: 20px;
+}
+
+.conclusion li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .linux-page {
+    padding: 16px;
+  }
+  
+  .distribution-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .distribution-logo {
+    margin: 0 auto;
+  }
+}

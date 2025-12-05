@@ -10,6 +10,7 @@ import CarteTalents from '../public/pages/CarteTalents';
 import LigueExtensions from '../public/pages/LigueExtensions';
 import Quiz from '../public/pages/Quiz';
 import Demarche from '../public/pages/Demarche';
+import LinuxPage from '../public/pages/Linux';
 import './App.css';
 import Snake from '../public/pages/Snake';
 
@@ -39,7 +40,7 @@ function App() {
               {/* Nouvelles routes pour les boutons du menu principal */}
               <Route path="/demarche" element={<Demarche />} />
               <Route path="/pourquoi" element={<div>Page Pourquoi</div>} />
-              <Route path="/linux" element={<div>Page Linux</div>} />
+              <Route path="/linux" element={<LinuxPage />} />
             </Routes>
         </Layout>
       </Layout>
