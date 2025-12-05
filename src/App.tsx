@@ -10,6 +10,8 @@ import Sesame from '../public/pages/Sesame';
 import CarteTalents from '../public/pages/CarteTalents';
 import LigueExtensions from '../public/pages/LigueExtensions';
 import Quiz from '../public/pages/Quiz';
+import Demarche from '../public/pages/Demarche';
+import './App.css';
 
 const { Content } = Layout;
 
@@ -33,7 +35,7 @@ function App() {
               <Route path="/ligue-extensions" element={<LigueExtensions />} />
               <Route path="/quiz" element={<Quiz />} />
               {/* Nouvelles routes pour les boutons du menu principal */}
-              <Route path="/demarche" element={<div>Page Démarche</div>} />
+              <Route path="/demarche" element={<Demarche />} />
               <Route path="/pourquoi" element={<div>Page Pourquoi</div>} />
               <Route path="/linux" element={<div>Page Linux</div>} />
             </Routes>
