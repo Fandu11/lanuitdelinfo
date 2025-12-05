@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 import { quizQuestions } from '../data/question';
 import './Quiz.css';
-import NirdLogo from '../components/logo.png';
+import NirdLogo from '../components/logo.png'; // Make sure this path is correct!
 
 const { Title } = Typography;
 

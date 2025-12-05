@@ -2,36 +2,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* Changement ici : on commence d'en haut au lieu de centrer de force */
+  justify-content: flex-start; 
   width: 100%;
-  min-height: 100%;
-  padding: 2rem;
+  min-height: 100vh;
+  /* On baisse l'ensemble des éléments de 100px (environ 6rem) */
+  padding-top: 6rem; 
+  padding-bottom: 4rem; /* Un peu d'espace en bas aussi */
+  padding-left: 2rem;
+  padding-right: 2rem;
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1400px;
+  /* Changement critique : on autorise le scroll car les éléments sont grands */
+  overflow-y: auto; 
+  overflow-x: hidden;
 }
 
+/* Le cercle reste identique en taille */
 .button-circle {
   position: relative;
-  width: 600px;
-  height: 600px;
-  margin: 0;
+  width: 750px;
+  height: 750px;
+  /* On s'assure qu'il ne pousse pas sur les côtés */
+  flex-shrink: 0; 
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Conteneur du diaporama */
 .slideshow-container {
   position: absolute;
-  width: 380px;
-  height: 280px;
+  width: 475px;
+  height: 306px;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background: white;
   transition: all 0.3s ease;
@@ -40,8 +50,8 @@
 .button-circle::before {
   content: '';
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 750px;
+  height: 750px;
   border: 2px solid #1890ff;
   border-radius: 50%;
   top: 50%;
@@ -52,18 +62,9 @@
 }
 
 @keyframes pulse {
-  0% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-  100% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(0.95);
-  }
+  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+  100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
 }
 
 .circle-button {
@@ -71,11 +72,11 @@
   top: 50%;
   left: 50%;
   transform-origin: center;
-  width: 140px;
-  height: 140px;
+  width: 175px;
+  height: 175px;
   border-radius: 50%;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   line-height: 1.4;
@@ -87,7 +88,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 10px;
+  padding: 0 15px;
   margin: 0;
   overflow: hidden;
   cursor: pointer;
@@ -99,23 +100,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Animations uniques pour chaque bouton */
 @keyframes rotate1 {
-  from { transform: translate(-50%, -50%) rotate(0deg) translateY(-300px) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg) translateY(-300px) rotate(-360deg); }
+  from { transform: translate(-50%, -50%) rotate(0deg) translateY(-375px) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg) translateY(-375px) rotate(-360deg); }
 }
 
 @keyframes rotate2 {
-  from { transform: translate(-50%, -50%) rotate(120deg) translateY(-300px) rotate(-120deg); }
-  to { transform: translate(-50%, -50%) rotate(480deg) translateY(-300px) rotate(-480deg); }
+  from { transform: translate(-50%, -50%) rotate(120deg) translateY(-375px) rotate(-120deg); }
+  to { transform: translate(-50%, -50%) rotate(480deg) translateY(-375px) rotate(-480deg); }
 }
 
 @keyframes rotate3 {
-  from { transform: translate(-50%, -50%) rotate(240deg) translateY(-300px) rotate(-240deg); }
-  to { transform: translate(-50%, -50%) rotate(600deg) translateY(-300px) rotate(-600deg); }
+  from { transform: translate(-50%, -50%) rotate(240deg) translateY(-375px) rotate(-240deg); }
+  to { transform: translate(-50%, -50%) rotate(600deg) translateY(-375px) rotate(-600deg); }
 }
 
-/* Application des animations et styles personnalisés */
 .button-0 { 
   animation: rotate1 20s linear infinite;
   background: linear-gradient(135deg, #a7c7e7 0%, #7fb3e6 100%);
@@ -143,7 +142,6 @@
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
 }
 
-/* Styles de survol et d'état actif */
 .circle-button:hover {
   animation-play-state: paused;
   z-index: 3;
@@ -157,61 +155,135 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Styles responsives */
 @media (max-width: 768px) {
-  .button-circle {
-    width: 480px;
-    height: 480px;
-  }
-  
-  .slideshow-container {
-    width: 300px;
-    height: 200px;
-  }
-  
-  .circle-button {
-    width: 100px;
-    height: 100px;
-  }
+  .button-circle { width: 600px; height: 600px; }
+  .button-circle::before { width: 600px; height: 600px; }
+  .slideshow-container { width: 375px; height: 250px; }
+  .circle-button { width: 125px; height: 125px; font-size: 1rem; }
 
   @keyframes rotate1 {
-    from { transform: translate(-50%, -50%) rotate(0deg) translateY(-220px) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg) translateY(-220px) rotate(-360deg); }
+    from { transform: translate(-50%, -50%) rotate(0deg) translateY(-275px) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg) translateY(-275px) rotate(-360deg); }
   }
-
   @keyframes rotate2 {
-    from { transform: translate(-50%, -50%) rotate(120deg) translateY(-220px) rotate(-120deg); }
-    to { transform: translate(-50%, -50%) rotate(480deg) translateY(-220px) rotate(-480deg); }
+    from { transform: translate(-50%, -50%) rotate(120deg) translateY(-275px) rotate(-120deg); }
+    to { transform: translate(-50%, -50%) rotate(480deg) translateY(-275px) rotate(-480deg); }
   }
-
   @keyframes rotate3 {
-    from { transform: translate(-50%, -50%) rotate(240deg) translateY(-220px) rotate(-240deg); }
-    to { transform: translate(-50%, -50%) rotate(600deg) translateY(-220px) rotate(-600deg); }
+    from { transform: translate(-50%, -50%) rotate(240deg) translateY(-275px) rotate(-240deg); }
+    to { transform: translate(-50%, -50%) rotate(600deg) translateY(-275px) rotate(-600deg); }
   }
 }
 
-/* Styles de base pour le layout */
 #root, .ant-layout {
   min-height: 100vh;
   width: 100%;
 }
 
-.ant-layout-content {
-  flex: 1;
-}
+.ant-layout-content { flex: 1; }
 
-/* Styles pour la carte de contenu */
 .content-card {
-  max-width: 600px;
+  max-width: 750px;
   width: 90%;
-  margin: 2rem auto;
+  /* Augmentation de la marge haute pour éviter la superposition avec les boutons qui tournent */
+  margin-top: 10rem; 
+  margin-bottom: 4rem;
   text-align: center;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease-out;
+  background: white;
+  padding: 3rem;
+  line-height: 1.8;
+  color: #333;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.main-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  background: -webkit-linear-gradient(45deg, #1890ff, #722ed1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #1890ff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e8e8e8, transparent);
+  margin: 2rem 0;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.pillar-item {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #f9f9f9;
+  border-left: 5px solid #ccc;
+  transition: transform 0.2s ease;
+}
+
+.pillar-item:hover { transform: translateY(-5px); }
+.pillar-item h3 { margin-top: 0; font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+.p-blue { border-color: #7fb3e6; background: #f0f7ff; }
+.p-blue h3 { color: #1890ff; }
+
+.p-purple { border-color: #d9b3ff; background: #f9f0ff; }
+.p-purple h3 { color: #722ed1; }
+
+.p-yellow { border-color: #ffed99; background: #fffbe6; }
+.p-yellow h3 { color: #faad14; }
+
+.linux-list ul { list-style-type: none; padding-left: 0; }
+.linux-list li {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231890ff' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z'/%3E%3C/svg%3E") no-repeat left center;
+  padding-left: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, #2c3e50 0%, #4a6fa5 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.cta-box h2 { color: white; margin-top: 0; }
+.cta-highlight {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 500;
 }
