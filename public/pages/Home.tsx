@@ -1,50 +1,60 @@
-import React, { useState } from 'react';
-import { Button, Card } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Button, Card, Image } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
+// Images pour le diaporama
+const slides = [
+  'https://via.placeholder.com/300x200/1890ff/ffffff?text=Image+1',
+  'https://via.placeholder.com/300x200/52c41a/ffffff?text=Image+2',
+  'https://via.placeholder.com/300x200/faad14/ffffff?text=Image+3',
+];
+
 const Home: React.FC = () => {
-  const [activeButton, setActiveButton] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
+
+  // Gestion du diaporama automatique
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   const buttons = [
-    { id: 1, text: 'Démarche' },
-    { id: 2, text: 'Pourquoi' },
-    { id: 3, text: 'Linux' }
+    { id: 1, text: 'Démarche', path: '/demarche' },
+    { id: 2, text: 'Pourquoi', path: '/pourquoi' },
+    { id: 3, text: 'Linux', path: '/linux' }
   ];
 
-  const getContent = () => {
-    switch(activeButton) {
-      case 1:
-        return "Découvrez notre approche innovante et nos méthodes de travail pour vous offrir les meilleures solutions.";
-      case 2:
-        return "Expertise, professionnalisme et engagement sont les piliers de notre succès.";
-      case 3:
-        return "Nous croyons en la puissance des solutions open source et de l'écosystème Linux.";
-      default:
-        return "Sélectionnez une option pour en savoir plus.";
-    }
+  const handleButtonClick = (path: string) => {
+    navigate(path);
   };
 
   return (
     <div className="home-container">
       <div className="button-circle">
+        {/* Diaporama au centre */}
+        <div className="slideshow-container">
+          <Image
+            src={slides[currentSlide]}
+            alt={`Slide ${currentSlide + 1}`}
+            preview={false}
+            className="slide"
+          />
+        </div>
         {buttons.map((button, index) => (
           <Button
             key={button.id}
-            type={activeButton === button.id ? "primary" : "default"}
             className={`circle-button button-${index}`}
-            onClick={() => setActiveButton(button.id)}
+            onClick={() => handleButtonClick(button.path)}
             style={{ '--rotation': `${index * 120}deg` } as React.CSSProperties}
           >
             {button.text}
           </Button>
         ))}
       </div>
-      
-      {activeButton !== null && (
-        <Card className="content-card">
-          <p>{getContent()}</p>
-        </Card>
-      )}
     </div>
   );
 };

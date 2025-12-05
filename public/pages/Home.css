@@ -13,83 +13,184 @@
 
 .button-circle {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* ... (le reste de votre CSS existant) ... */
+/* Conteneur du diaporama */
+.slideshow-container {
+  position: absolute;
+  width: 380px;
+  height: 280px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: white;
+  transition: all 0.3s ease;
+}
 
-/* ... (le reste du CSS reste inchangé) ... */
+.button-circle::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border: 2px solid #1890ff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
 
 .circle-button {
   position: absolute;
   top: 50%;
   left: 50%;
   transform-origin: center;
-  min-width: 140px;
-  height: 50px;
-  border-radius: 25px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   font-size: 1.1rem;
-  font-weight: 500;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid #1890ff;
-  background: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: none;
+  color: white;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 10px;
   margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  word-wrap: break-word;
+  hyphens: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Positionnement des boutons en cercle */
+/* Animations uniques pour chaque bouton */
+@keyframes rotate1 {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateY(-300px) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg) translateY(-300px) rotate(-360deg); }
+}
+
+@keyframes rotate2 {
+  from { transform: translate(-50%, -50%) rotate(120deg) translateY(-300px) rotate(-120deg); }
+  to { transform: translate(-50%, -50%) rotate(480deg) translateY(-300px) rotate(-480deg); }
+}
+
+@keyframes rotate3 {
+  from { transform: translate(-50%, -50%) rotate(240deg) translateY(-300px) rotate(-240deg); }
+  to { transform: translate(-50%, -50%) rotate(600deg) translateY(-300px) rotate(-600deg); }
+}
+
+/* Application des animations et styles personnalisés */
 .button-0 { 
-  transform: translate(-50%, -50%) rotate(0deg) translateY(-200px) rotate(0deg); 
-}
-.button-1 { 
-  transform: translate(-50%, -50%) rotate(120deg) translateY(-200px) rotate(-120deg); 
-}
-.button-2 { 
-  transform: translate(-50%, -50%) rotate(240deg) translateY(-200px) rotate(-240deg); 
+  animation: rotate1 20s linear infinite;
+  background: linear-gradient(135deg, #a7c7e7 0%, #7fb3e6 100%);
+  color: #2c3e50;
+  border: 2px solid #7fb3e6;
+  box-shadow: 0 4px 16px rgba(127, 179, 230, 0.25);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* Style pour le survol et l'état actif */
-.circle-button:hover,
+.button-1 { 
+  animation: rotate2 20s linear infinite;
+  background: linear-gradient(135deg, #e6d4ff 0%, #d9b3ff 100%);
+  color: #5d3d7a;
+  border: 2px solid #d9b3ff;
+  box-shadow: 0 4px 16px rgba(217, 179, 255, 0.3);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.button-2 { 
+  animation: rotate3 20s linear infinite;
+  background: linear-gradient(135deg, #fff3b0 0%, #ffed99 100%);
+  color: #8b8000;
+  border: 2px solid #ffed99;
+  box-shadow: 0 4px 16px rgba(255, 237, 153, 0.35);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Styles de survol et d'état actif */
+.circle-button:hover {
+  animation-play-state: paused;
+  z-index: 3;
+  transform: scale(1.05) translate(-50%, -50%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .circle-button.ant-btn-primary {
-  /* Suppression de l'effet de scale */
   z-index: 2;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive */
+/* Styles responsives */
 @media (max-width: 768px) {
   .button-circle {
-    width: 350px;
-    height: 350px;
+    width: 480px;
+    height: 480px;
   }
-
-  .button-0 { 
-    transform: translate(-50%, -50%) rotate(0deg) translateY(-150px) rotate(0deg); 
-  }
-  .button-1 { 
-    transform: translate(-50%, -50%) rotate(120deg) translateY(-150px) rotate(-120deg); 
-  }
-  .button-2 { 
-    transform: translate(-50%, -50%) rotate(240deg) translateY(-150px) rotate(-240deg); 
+  
+  .slideshow-container {
+    width: 300px;
+    height: 200px;
   }
   
   .circle-button {
-    min-width: 120px;
-    height: 45px;
-    font-size: 1rem;
+    width: 100px;
+    height: 100px;
+  }
+
+  @keyframes rotate1 {
+    from { transform: translate(-50%, -50%) rotate(0deg) translateY(-220px) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg) translateY(-220px) rotate(-360deg); }
+  }
+
+  @keyframes rotate2 {
+    from { transform: translate(-50%, -50%) rotate(120deg) translateY(-220px) rotate(-120deg); }
+    to { transform: translate(-50%, -50%) rotate(480deg) translateY(-220px) rotate(-480deg); }
+  }
+
+  @keyframes rotate3 {
+    from { transform: translate(-50%, -50%) rotate(240deg) translateY(-220px) rotate(-240deg); }
+    to { transform: translate(-50%, -50%) rotate(600deg) translateY(-220px) rotate(-600deg); }
   }
 }
 
+/* Styles de base pour le layout */
 #root, .ant-layout {
   min-height: 100vh;
   width: 100%;
@@ -97,4 +198,20 @@
 
 .ant-layout-content {
   flex: 1;
+}
+
+/* Styles pour la carte de contenu */
+.content-card {
+  max-width: 600px;
+  width: 90%;
+  margin: 2rem auto;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

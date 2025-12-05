@@ -26,20 +26,25 @@ function App() {
           transition: 'margin-left 0.2s'
         }}>
           <Content style={{ 
-            margin: '0', 
-            padding: '0', 
-            background: '#fff',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '100vh'
-          }}>
+          margin: '0', 
+          padding: '24px', 
+          background: '#fff',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/ergonomie" element={<Ergonomie />} />
               <Route path="/sesame" element={<Sesame />} />
               <Route path="/carte-talents" element={<CarteTalents />} />
               <Route path="/ligue-extensions" element={<LigueExtensions />} />
+              {/* Nouvelles routes pour les boutons du menu principal */}
+              <Route path="/demarche" element={<div>Page Démarche</div>} />
+              <Route path="/pourquoi" element={<div>Page Pourquoi</div>} />
+              <Route path="/linux" element={<div>Page Linux</div>} />
             </Routes>
           </Content>
         </Layout>
