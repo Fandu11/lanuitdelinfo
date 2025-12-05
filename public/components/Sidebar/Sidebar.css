@@ -30,7 +30,6 @@
   /* Dégradé de texte */
   background: linear-gradient(45deg, #1890ff, #722ed1, #faad14);
   background-size: 200% auto;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 5s linear infinite;
   margin: 0;

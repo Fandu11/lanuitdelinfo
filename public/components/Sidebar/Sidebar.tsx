@@ -4,7 +4,6 @@ import {
   HomeOutlined, 
   TeamOutlined, 
   ProjectOutlined, 
-  SettingOutlined,
   RocketOutlined, // J'ai ajouté Rocket et Bulb pour correspondre aux items
   BulbOutlined
 } from '@ant-design/icons';
