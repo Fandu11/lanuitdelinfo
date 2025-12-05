@@ -2,8 +2,7 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Card, Button, Typography, Progress, Alert, Result, List, Avatar, Divider, Space , message} from 'antd';
 import { 
-  CheckCircleOutlined, CloseCircleOutlined, ReloadOutlined, 
-  RocketOutlined, TrophyOutlined 
+  CheckCircleOutlined, CloseCircleOutlined, ReloadOutlined, TrophyOutlined 
 } from '@ant-design/icons';
 
 import { useNavigate } from 'react-router-dom';

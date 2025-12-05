@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card, Typography, List, Divider, Space, Button } from 'antd';
-import { ClockCircleOutlined, CheckCircleOutlined, EnvironmentOutlined, TeamOutlined, RocketOutlined, ArrowRightOutlined } from '@ant-design/icons';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { Card, Typography, List, Divider} from 'antd';
+import {CheckCircleOutlined, EnvironmentOutlined, TeamOutlined, RocketOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import { motion} from 'framer-motion';
 import './Pourquoi.css';
 
 const { Title, Paragraph, Text } = Typography;
@@ -53,8 +53,8 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({ title, icon, description, d
 );
 
 const Pourquoi: React.FC = () => {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  //const { scrollYProgress } = useScroll();
+  //const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   const avantages = [
     {
