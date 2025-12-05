@@ -3,6 +3,12 @@ import { useState } from 'react';
 import { Layout } from 'antd';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from '../public/components/Sidebar/Sidebar';
+
+import Ergonomie from '../public/pages/Ergonomie';
+import Sesame from '../public/pages/Sesame';
+import CarteTalents from '../public/pages/CarteTalents';
+import LigueExtensions from '../public/pages/LigueExtensions';
+
 import './App.css';
 
 const { Content } = Layout;
@@ -18,24 +24,30 @@ function App() {
 
   return (
     <Router>
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ minHeight: '100vh', display: 'flex', flexDirection: 'row' }}>
         <Sidebar onCollapse={setSidebarCollapsed} />
         <Layout style={{ 
+          flex: 1,
           marginLeft: sidebarCollapsed ? 80 : 250, 
           minHeight: '100vh',
-          transition: 'margin-left 0.2s'
+          transition: 'margin-left 0.2s ease',
+          backgroundColor: '#f0f2f5',
+          overflow: 'auto'
         }}>
           <Content style={{ 
             margin: '24px 16px', 
             padding: 24, 
             background: '#fff',
-            borderRadius: 8
+            borderRadius: 8,
+            boxShadow: '0 1px 2px 0 rgba(0,0,0,0.03)',
+            minHeight: 'calc(100vh - 80px)'
           }}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/equipe" element={<Team />} />
-              <Route path="/projets" element={<Projects />} />
-              <Route path="/parametres" element={<Settings />} />
+              <Route path="/ergonomie" element={<Ergonomie />} />
+              <Route path="/sesame" element={<Sesame />} />
+              <Route path="/carte-talents" element={<CarteTalents />} />
+              <Route path="/ligue-extensions" element={<LigueExtensions />} />
             </Routes>
           </Content>
         </Layout>

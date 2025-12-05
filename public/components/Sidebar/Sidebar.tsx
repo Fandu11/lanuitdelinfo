@@ -88,9 +88,10 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
         onClick={({ key }) => {
           const routes: {[key: string]: string} = {
             '1': '/',
-            '2': '/equipe',
-            '3': '/projets',
-            '4': '/parametres'
+            '2': '/ergonomie',
+            '3': '/sesame',
+            '4': '/carte-talents',
+            '5': '/ligue-extensions'
           };
           navigate(routes[key] || '/');
         }}
@@ -98,15 +99,20 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
         <Menu.Item key="1" icon={<HomeOutlined />}>
           Accueil
         </Menu.Item>
-        <Menu.Item key="2" icon={<TeamOutlined />}>
-          Équipe
-        </Menu.Item>
-        <Menu.Item key="3" icon={<ProjectOutlined />}>
-          Projets
-        </Menu.Item>
-        <Menu.Item key="4" icon={<SettingOutlined />}>
-          Paramètres
-        </Menu.Item>
+        <Menu.SubMenu key="projets" icon={<ProjectOutlined />} title="Projets">
+          <Menu.Item key="2" icon={<ProjectOutlined />}>
+            L'ergonomie : simplifier pour mieux vivre
+          </Menu.Item>
+          <Menu.Item key="3" icon={<ProjectOutlined />}>
+            Sésame ouvre-toi !
+          </Menu.Item>
+          <Menu.Item key="4" icon={<ProjectOutlined />}>
+            La carte des talents
+          </Menu.Item>
+          <Menu.Item key="5" icon={<ProjectOutlined />}>
+            La ligue des extensions
+          </Menu.Item>
+        </Menu.SubMenu>
       </Menu>
     </Sider>
   );
