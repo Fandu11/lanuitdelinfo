@@ -89,10 +89,9 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
           const routes: { [key: string]: string } = {
             '1': '/',
             '2': '/ergonomie',
-            '3': '/sesame',
-            '4': '/carte-talents',
-            '5': '/ligue-extensions',
-            '6': '/quiz',
+            '3': '/carte-talents',
+            '4': '/ligue-extensions',
+            '5': '/quiz',
           };
           navigate(routes[key] || '/');
         }}
@@ -103,16 +102,13 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
         <Menu.Item key="2" icon={<SettingOutlined />}>
           Ergonomie
         </Menu.Item>
-        <Menu.Item key="3" icon={<ProjectOutlined />}>
-          Sesame
-        </Menu.Item>
-        <Menu.Item key="4" icon={<TeamOutlined />}>
+        <Menu.Item key="3" icon={<TeamOutlined />}>
           Carte Talents
         </Menu.Item>
-        <Menu.Item key="5" icon={<TeamOutlined />}>
+        <Menu.Item key="4" icon={<TeamOutlined />}>
           Ligue Extensions
         </Menu.Item>
-        <Menu.Item key="6" icon={<TeamOutlined />}>
+        <Menu.Item key="5" icon={<TeamOutlined />}>
           Quiz
         </Menu.Item>
       </Menu>

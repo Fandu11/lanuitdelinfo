@@ -1,15 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Typography, Card, Input, message } from 'antd';
 import { QuestionCircleOutlined, BulbOutlined } from '@ant-design/icons';
+import { useLocation } from 'react-router-dom';
 
 // Import du jeu (chemin à adapter si besoin)
 import HiddenSnake from '../../src/components/HiddenSnake';
 
-const { Title, Paragraph } = Typography;
 
-export default function Sesame() {
+export default function Snake() {
   const [isSnakeOpen, setIsSnakeOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Si on vient du Quiz avec le code "snake", location.state.autoStart sera true
+    if (location.state && location.state.autoStart) {
+      setIsSnakeOpen(true);
+      message.success('Cheat code activé : Accès direct ! 🐍');
+      
+      // Optionnel : On peut nettoyer l'historique pour qu'un refresh ne relance pas le jeu
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
 
   // Fonction appelée à chaque lettre tapée
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

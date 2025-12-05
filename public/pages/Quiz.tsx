@@ -1,10 +1,13 @@
 // src/pages/Quiz.tsx
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Card, Button, Typography, Progress, Alert, Result, List, Avatar, Divider, Space } from 'antd';
+import { Card, Button, Typography, Progress, Alert, Result, List, Avatar, Divider, Space , message} from 'antd';
 import { 
   CheckCircleOutlined, CloseCircleOutlined, ReloadOutlined, 
   RocketOutlined, TrophyOutlined 
 } from '@ant-design/icons';
+
+import { useNavigate } from 'react-router-dom';
+
 import { quizQuestions } from '../data/question';
 import './Quiz.css';
 import NirdLogo from '../components/logo.png'; // Make sure this path is correct!
@@ -67,6 +70,9 @@ const KEY_LIST = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'BACK', 0, 'ENTER'];
 const KEY_SIZE = 85; // Doit correspondre au CSS
 
 export default function Quiz() {
+
+  const navigate = useNavigate();
+
   // --- États du Jeu ---
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -216,6 +222,19 @@ export default function Quiz() {
 
   // --- SAUVEGARDE & RESET (inchangé) ---
   const handleSaveScore = () => {
+
+    const cleanedName = userName.trim().toLowerCase();
+
+    // --- MODIFICATION ICI : EASTER EGG SNAKE ---
+    if (cleanedName === 's') {
+        message.loading('Initialisation du protocole Python... 🐍', 1.5)
+          .then(() => {
+            // Redirection vers la page sésame
+            navigate('/sesame', { state: { autoStart: true } }); 
+          });
+        return; // On arrête la fonction ici, on n'enregistre pas le score
+    }
+
     if (!userName.trim()) return;
     const newEntry: ScoreEntry = { name: userName, score: score, date: new Date().toLocaleDateString('fr-FR') };
     const newLeaderboard = [...leaderboard, newEntry].sort((a, b) => b.score - a.score);
