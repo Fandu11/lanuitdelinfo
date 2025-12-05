@@ -8,6 +8,8 @@ import Ergonomie from '../public/pages/Ergonomie';
 import Sesame from '../public/pages/Sesame';
 import CarteTalents from '../public/pages/CarteTalents';
 import LigueExtensions from '../public/pages/LigueExtensions';
+import Quiz from '../public/pages/Quiz';
+
 import './App.css';
 
 const { Content } = Layout;
@@ -44,6 +46,7 @@ function App() {
               <Route path="/sesame" element={<Sesame />} />
               <Route path="/carte-talents" element={<CarteTalents />} />
               <Route path="/ligue-extensions" element={<LigueExtensions />} />
+              <Route path="/quiz" element={<Quiz />} />
             </Routes>
           </Content>
         </Layout>

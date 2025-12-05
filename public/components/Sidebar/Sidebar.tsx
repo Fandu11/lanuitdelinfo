@@ -89,7 +89,8 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
             '2': '/ergonomie',
             '3': '/sesame',
             '4': '/carte-talents',
-            '5': '/ligue-extensions'
+            '5': '/ligue-extensions',
+            '6': '/quiz'
           };
           navigate(routes[key] || '/');
         }}
@@ -109,6 +110,9 @@ export default function Sidebar({ onCollapse }: SidebarProps) {
           </Menu.Item>
           <Menu.Item key="5" icon={<ProjectOutlined />}>
             La ligue des extensions
+          </Menu.Item>
+          <Menu.Item key="6" icon={<ProjectOutlined />}>
+            Quiz
           </Menu.Item>
         </Menu.SubMenu>
       </Menu>
